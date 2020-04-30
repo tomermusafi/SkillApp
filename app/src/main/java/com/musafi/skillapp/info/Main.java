@@ -12,26 +12,51 @@ enum LessonStatus {
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		System.out.println("Start..");
-		List<Category> categories = getAllCategories();
-		for (int i = 0; i < categories.size(); i++) {
-			System.out.println("Category: " + categories.get(i));
-			for (int j = 0; j < categories.get(i).getSubCategories().size(); j++) {
-				System.out.println("Sub Category: " + categories.get(i).getSubCategories().get(j));
-			}
-		}
+		/* Print Categories */
+//		List<Category> categories = getAllCategories();
+//		for (int i = 0; i < categories.size(); i++) {
+//			System.out.println("Category: " + categories.get(i));
+//			for (int j = 0; j < categories.get(i).getSubCategories().size(); j++) {
+//				System.out.println("Sub Category: " + categories.get(i).getSubCategories().get(j));
+//			}
+//		}
 		
 		
 //		for (int i = 0; i < subca.length; i++) {
 //			
 //		}
 //		System.out.println(subCategoriesNames);
-//		Person person1 = new Person("Jacob", "jacob123@gmail.com", 5);
+		Person jacob = new Person("Jacob", "jacob123@gmail.com", 5);
 //		Category category1 = new Category("Board Games");
 //		SubCategory subcategory1 = new SubCategory("Chess", category1);
 //		category1.addSubCategory(subcategory1);
 //		
+		List<Category> categories = getAllCategories();
+		List<Lesson> lessons = new ArrayList<Lesson>();
+		int numOfLessons = 5;
+		for (int i = 0; i < numOfLessons; i++) {
+			Random rand = new Random();
+			
+			int randomMinutes = 0 + (int)(Math.random() * 50);
+			int randomHours = 0 + (int)(Math.random() * 10);
+			int randomDays = 0 + (int)(Math.random() * 2);
+			LocalDateTime currentTime = LocalDateTime.now().plusMinutes(randomMinutes);
+			currentTime = LocalDateTime.now().plusHours(randomHours);
+			currentTime = LocalDateTime.now().plusDays(randomDays);
+			
+			int randomDuration = (2 + (int)(Math.random() * 8))*10;
+			Category randomCategory = categories.get(rand.nextInt(categories.size()));
+			SubCategory randomSubCategory = randomCategory.getSubCategories().get(rand.nextInt(randomCategory.getSubCategories().size()));
+			String lessonName = randomCategory.getName() + " ->" + randomSubCategory.getName();
+			
+			int randomMaxStudents = 1 + (int)(Math.random() * 3);
+			lessons.add(new Lesson(lessonName, randomCategory, randomSubCategory, currentTime, randomDuration, jacob, randomMaxStudents));
+		}
+		
+		for (int i = 0; i < lessons.size(); i++) {
+			System.out.println(lessons.get(i));
+		}
 //		int randomNum = 0 + (int)(Math.random() * 50);
 //		LocalDateTime currentTime = LocalDateTime.now().plusMinutes(randomNum);
 //		Lesson lesson1 = new Lesson("My Chess lesson", category1, subcategory1, currentTime, 30, person1, 1);

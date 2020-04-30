@@ -1,5 +1,6 @@
 package com.musafi.skillapp.info;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class Lesson {
@@ -11,6 +12,7 @@ public class Lesson {
 	Person lecturer;
 	List<Person> students;
 	int maxStudents;
+	
 	
 	public Lesson(String name, Category category, SubCategory subcategory, LocalDateTime start_time, int duration,
 			Person lecturer, int maxStudents) {
@@ -80,10 +82,15 @@ public class Lesson {
 		this.students.add(student);
 	}
 
+	public String getBeautifulTime() {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+		LocalDateTime dateTime = LocalDateTime.parse(this.start_time.toString(), formatter);
+		return dateTime.toString();
+	}
 	@Override
 	public String toString() {
 		return "Lesson [name=" + name + ", category=" + category + ", subcategory=" + subcategory + ", start_time="
-				+ start_time + ", duration=" + duration + ", lecturer=" + lecturer + ", students=" + students
+				+ getBeautifulTime() + ", duration=" + duration + ", lecturer=" + lecturer + ", students=" + students
 				+ ", maxStudents=" + maxStudents + "]";
 	}
 	
