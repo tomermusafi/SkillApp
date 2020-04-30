@@ -11,10 +11,11 @@ public class Lesson {
 	Person lecturer;
 	List<Person> students;
 	int maxStudents;
-	
+	int numOfStudentsRolled;
+	String bio;
 	
 	public Lesson(String name, Category category, SubCategory subcategory, LocalDateTime start_time, int duration,
-			Person lecturer, int maxStudents) {
+			Person lecturer, int maxStudents, int numOfStudentsRolled, String bio) {
 		this.name = name;
 		this.category = category;
 		this.subcategory = subcategory;
@@ -23,6 +24,24 @@ public class Lesson {
 		this.lecturer = lecturer;
 		this.maxStudents = maxStudents;
 		this.students = new ArrayList<Person>();
+		this.numOfStudentsRolled = numOfStudentsRolled;
+		this.bio = bio;
+	}
+
+	public String getBio() {
+		return bio;
+	}
+
+	public void setBio(String bio) {
+		this.bio = bio;
+	}
+
+	public int getNumOfStudentsRolled() {
+		return numOfStudentsRolled;
+	}
+
+	public void setNumOfStudentsRolled(int numOfStudentsRolled) {
+		this.numOfStudentsRolled = numOfStudentsRolled;
 	}
 
 	public String getName() {
@@ -102,8 +121,8 @@ public class Lesson {
 	@Override
 	public String toString() {
 		return "Lesson [name=" + name + ", category=" + category + ", subcategory=" + subcategory + ", start_time="
-				+ getStartTimeDate() + " " + getStartTimeHourMinute() + ", duration=" + duration + ", lecturer=" + lecturer + ", Number Of Students=" + students.size()
-				+ ", maxStudents=" + maxStudents + "]" + "Rating: " + this.lecturer.getRating();
+				+ getStartTimeDate() + " " + getStartTimeHourMinute() + ", duration=" + duration + ", lecturer=" + lecturer + ", Students=" + numOfStudentsRolled + "/" + maxStudents
+				+ ", maxStudents=" + maxStudents + "]" + "Rating: " + this.lecturer.getRating() + "Bio: " + bio;
 	}
 	
 	public LessonStatus checkLessonStatus() {

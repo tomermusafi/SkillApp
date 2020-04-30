@@ -79,12 +79,27 @@ public class Main {
 				"Jeffrey","Monroe","Nelson","Jenna","Rebekah","Suzie","Hosea","Candis","Billy","Rosalba","Eldon","Demetria", 
 				"Oswaldo","Marline","Adrian","Lynnette","Shaunta","Tinisha","Miles","Lyndon","Monte","Joel","Everett",
 				"Jermaine","Irwin","Arturo","Dillon","Valentina","Glennis","Faviola","Patsy","Pinkie"};
+		String urls[] = {"https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+				,"https://images.pexels.com/photos/3914102/pexels-photo-3914102.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" 
+				,"https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+				,"https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+				,"https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+				,"https://2xkcvt35vyxycuy7x23e0em1a5g-wpengine.netdna-ssl.com/wp-content/uploads/2019/08/Dwayne-Johnson-photo-Eva-Rinaldi-wikipedia-293x300.jpg"
+				,"https://static.politico.com/dims4/default/e8a2d49/2147483647/resize/1160x/quality/90/?url=https%3A%2F%2Fstatic.politico.com%2Fe6%2Ffc%2F4c2b102e4c92be07930d4981df12%2F200408-trump-2-ap-773.jpg" 
+				,"https://mfa.gov.il/MFA/AboutIsrael/State/Personalities/Photos/gpo-ao-netanyahu-head.jpg"
+				,"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"
+				,"https://images.unsplash.com/photo-1528892952291-009c663ce843?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=296&q=80"
+				,"https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+				,"https://www.celebrityspeakersbureau.com/wp-content/uploads/2013/06/lionel-messi.jpg"
+				,"http://www.fubiz.net/wp-content/uploads/2015/01/Famous-People-Portraits-5.jpg"
+				,"https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"};
 		for (int i = 0; i < names.length; i++) {
 			String randomName = names[(int)(Math.random() * names.length)];
 			int randomCoinsAmount = 1 + (int)(Math.random() * 18);
 			double randomRating = 3.9 + (double)(Math.random() * 1.1);
 			randomRating = Double.valueOf((String.format("%.1f", randomRating)));
-			users.add(new Person(randomName, "e@e.com", randomCoinsAmount, randomRating));
+			String randomUrl = urls[(int)(Math.random() * urls.length)];
+			users.add(new Person(randomName, "e@e.com", randomCoinsAmount, randomRating, randomUrl));
 		}
 		return users;
 	}
@@ -130,7 +145,10 @@ public class Main {
 			Person randomPerson = users.get((int)(Math.random() * users.size()));
 			String lessonName = randomPerson.getName() + "'s " + subCategory.getName() + " Lesson";
 			int randomMaxStudents = 1 + (int)(Math.random() * 3);
-			lessons.add(new Lesson(lessonName, subCategory.getCategory(), subCategory, currentTime, randomDuration, randomPerson, randomMaxStudents));
+			int randomOfStudentsRolled = (int)(Math.random() * randomMaxStudents);
+			String randomBio = "My name is " + randomPerson.getName() + " and I'm from California. My first passion is " + subCategory.getName() + ", my second passion is teaching! "
+					+ "Feel welcome to join my lesson and together we will make the world a better place :)";
+			lessons.add(new Lesson(lessonName, subCategory.getCategory(), subCategory, currentTime, randomDuration, randomPerson, randomMaxStudents, randomOfStudentsRolled, randomBio));
 		}
 		lessons = sortByLessonTime(lessons);
 		return lessons;

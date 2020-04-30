@@ -10,8 +10,9 @@ public class Person {
 	int currentAmount;
 	double rating;
 	String avatar;
+	String url;
 	
-	public Person(String name, String email, int currentAmount, double rating) {
+	public Person(String name, String email, int currentAmount, double rating, String url) {
 		this.name = name;
 		this.email = email;
 		this.currentAmount = currentAmount;
@@ -19,6 +20,23 @@ public class Person {
 		this.lessons = new ArrayList<Lesson>();
 		this.followCategories = new ArrayList<Category>();
 		this.followSubcategories = new ArrayList<SubCategory>();
+		this.url = url;
+	}
+
+	public String getAvatar() {
+		return avatar;
+	}
+
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 	public double getRating() {
