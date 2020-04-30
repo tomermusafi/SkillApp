@@ -13,7 +13,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		System.out.println("Start..");
-		/* Print Categories */
+//		/* Print Categories */
 //		List<Category> categories = getAllCategories();
 //		for (int i = 0; i < categories.size(); i++) {
 //			System.out.println("Category: " + categories.get(i));
@@ -27,32 +27,13 @@ public class Main {
 //			
 //		}
 //		System.out.println(subCategoriesNames);
-		Person jacob = new Person("Jacob", "jacob123@gmail.com", 5);
+
+//		Person jacob = new Person("Jacob", "jacob123@gmail.com", 5);
 //		Category category1 = new Category("Board Games");
 //		SubCategory subcategory1 = new SubCategory("Chess", category1);
 //		category1.addSubCategory(subcategory1);
 //		
-		List<Category> categories = getAllCategories();
-		List<Lesson> lessons = new ArrayList<Lesson>();
-		int numOfLessons = 5;
-		for (int i = 0; i < numOfLessons; i++) {
-			Random rand = new Random();
-			
-			int randomMinutes = 0 + (int)(Math.random() * 50);
-			int randomHours = 0 + (int)(Math.random() * 10);
-			int randomDays = 0 + (int)(Math.random() * 2);
-			LocalDateTime currentTime = LocalDateTime.now().plusMinutes(randomMinutes);
-			currentTime = LocalDateTime.now().plusHours(randomHours);
-			currentTime = LocalDateTime.now().plusDays(randomDays);
-			
-			int randomDuration = (2 + (int)(Math.random() * 8))*10;
-			Category randomCategory = categories.get(rand.nextInt(categories.size()));
-			SubCategory randomSubCategory = randomCategory.getSubCategories().get(rand.nextInt(randomCategory.getSubCategories().size()));
-			String lessonName = randomCategory.getName() + " ->" + randomSubCategory.getName();
-			
-			int randomMaxStudents = 1 + (int)(Math.random() * 3);
-			lessons.add(new Lesson(lessonName, randomCategory, randomSubCategory, currentTime, randomDuration, jacob, randomMaxStudents));
-		}
+		List<Lesson> lessons = getAllLessons(30);
 		
 		for (int i = 0; i < lessons.size(); i++) {
 			System.out.println(lessons.get(i));
@@ -92,6 +73,20 @@ public class Main {
 		return sortedLessons;
 	}
 	
+	public static List<Person> getAllUsers() {
+		List<Person> users = new ArrayList<Person>();
+		String names[] = {"Jacob", "Tomer", "Eli","Casie","Eddy","Tracey","Sharan","Noella","Amelia","Judie","Emile",
+				"Jeffrey","Monroe","Nelson","Jenna","Rebekah","Suzie","Hosea","Candis","Billy","Rosalba","Eldon","Demetria", 
+				"Oswaldo","Marline","Adrian","Lynnette","Shaunta","Tinisha","Miles","Lyndon","Monte","Joel","Everett",
+				"Jermaine","Irwin","Arturo","Dillon","Valentina","Glennis","Faviola","Patsy","Pinkie"};
+		for (int i = 0; i < names.length; i++) {
+			String randomName = names[(int)(Math.random() * names.length)];
+			int randomCoinsAmount = 1 + (int)(Math.random() * 18);
+			users.add(new Person(randomName, "e@e.com", randomCoinsAmount));
+		}
+		return users;
+	}
+	
 	public static List<Category> getAllCategories() {
 		String categoriesNames[] = {"Music", "Software","DIY","Academy","Career","Lifestyle"};
 		String subCategoriesNames[][] = {{"Guitar","Piano","Drums","Editing","Violin", "Darbuka"},
@@ -111,6 +106,33 @@ public class Main {
 		}
 		Collections.shuffle(categories);
 		return categories;
+	}
+	
+	public static List<Lesson> getAllLessons(int numOfLessons) {
+		List<Person> users = getAllUsers();
+		List<Category> categories = getAllCategories();
+		List<Lesson> lessons = new ArrayList<Lesson>();
+		for (int i = 0; i < numOfLessons; i++) {
+			Random rand = new Random();
+			
+			int randomMinutes = 0 + (int)(Math.random() * 50);
+			int randomHours = 0 + (int)(Math.random() * 10);
+			int randomDays = 0 + (int)(Math.random() * 2);
+			LocalDateTime currentTime = LocalDateTime.now().plusMinutes(randomMinutes);
+			currentTime = currentTime.plusHours(randomHours);
+			currentTime = currentTime.plusDays(randomDays);
+			
+			int randomDuration = (2 + (int)(Math.random() * 8))*10;
+			Category randomCategory = categories.get(rand.nextInt(categories.size()));
+			SubCategory randomSubCategory = randomCategory.getSubCategories().get(rand.nextInt(randomCategory.getSubCategories().size()));
+			String lessonName = randomCategory.getName() + " -> " + randomSubCategory.getName();
+			
+			Person randomPerson = users.get((int)(Math.random() * users.size()));
+			
+			int randomMaxStudents = 1 + (int)(Math.random() * 3);
+			lessons.add(new Lesson(lessonName, randomCategory, randomSubCategory, currentTime, randomDuration, randomPerson, randomMaxStudents));
+		}
+		return lessons;
 	}
 
 }

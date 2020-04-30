@@ -88,4 +88,8 @@ public class Person {
 	public void setFollowSubcategories(List<SubCategory> followSubcategories) {
 		this.followSubcategories = followSubcategories;
 	}
+	@Override
+	public String toString() {
+		return name;
+	}
 }

@@ -92,7 +92,7 @@ public class Lesson {
 	@Override
 	public String toString() {
 		return "Lesson [name=" + name + ", category=" + category + ", subcategory=" + subcategory + ", start_time="
-				+ getStartTimeDate() + " " + getStartTimeHourMinute() + ", duration=" + duration + ", lecturer=" + lecturer + ", students=" + students
+				+ getStartTimeDate() + " " + getStartTimeHourMinute() + ", duration=" + duration + ", lecturer=" + lecturer + ", Number Of Students=" + students.size()
 				+ ", maxStudents=" + maxStudents + "]";
 	}
 	
