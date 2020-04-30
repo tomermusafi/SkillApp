@@ -87,5 +87,24 @@ public class Lesson {
 				+ ", maxStudents=" + maxStudents + "]";
 	}
 	
+	public LessonStatus checkLessonStatus() {
+		start_time = start_time.minusMinutes(29);
+		System.out.println(start_time);
+		if (LocalDateTime.now().isAfter(start_time) && LocalDateTime.now().isBefore(start_time.plusMinutes(30))) {
+			return LessonStatus.NOW;
+		} else if (LocalDateTime.now().isAfter(start_time.plusMinutes(30))) {
+			return LessonStatus.ENDED;
+		}
+		return LessonStatus.FUTURE;
+	}
+	
+}
+
+class SortByTime implements Comparator<Lesson> {
+
+	@Override
+	public int compare(Lesson lesson1, Lesson lesson2) {
+		return lesson1.start_time.compareTo(lesson2.start_time);
+	}
 	
 }
