@@ -1,4 +1,4 @@
-package com.musafi.skillapp;
+package info;
 
 public class Main {
 
