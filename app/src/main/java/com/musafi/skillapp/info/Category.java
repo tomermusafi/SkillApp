@@ -3,12 +3,11 @@ import java.util.*;
 
 public class Category {
 	String name;
-	String id;
-	List<SubCategory> subCategories;	
+	List<SubCategory> subCategories;
 	
-	public Category(String name, String id) {
+	public Category(String name) {
 		this.name = name;
-		this.id = id;
+		this.subCategories = new ArrayList<SubCategory>();
 	}
 	
 	public String getName() {
@@ -17,12 +16,7 @@ public class Category {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
+
 	public List<SubCategory> getSubCategories() {
 		return subCategories;
 	}
@@ -34,6 +28,9 @@ public class Category {
 		this.subCategories.add(subCategory);
 	}
 	
+	public void mixSubCategories() {
+		Collections.shuffle(this.subCategories);
+	}
 	@Override
 	public String toString() {
 		return name;

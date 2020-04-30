@@ -14,32 +14,46 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println("Start..");
-		
-		Category category1 = new Category("Board Games", "asd");
-		SubCategory subcategory1 = new SubCategory("Chess", "123a", category1);
-		Person person1 = new Person("1", "Jacob", "jacob@gmail.com", 5);
-		int randomNum = 0 + (int)(Math.random() * 50);
-		LocalDateTime currentTime = LocalDateTime.now().plusMinutes(randomNum);
-		Lesson lesson1 = new Lesson("My Chess lesson", category1, subcategory1, currentTime, 30, person1, 1);
-		randomNum = 0 + (int)(Math.random() * 50);
-		currentTime = LocalDateTime.now().plusMinutes(randomNum);
-		Lesson lesson2 = new Lesson("My Poop lesson", category1, subcategory1, currentTime, 30, person1, 1);
-//		System.out.println(lesson1.checkLessonStatus());
-//		System.out.println(lesson1);
-//		lesson1 = new Lesson("Eli's lesson", category, subcategory, start_time, duration, lecturer, students, maxStudents)
-		
-		
-		List<Lesson> l1 = new ArrayList<Lesson>();
-		l1.add(lesson1);
-		l1.add(lesson2);
-		for (int i = 0; i < l1.size(); i++) {
-			System.out.println(l1.get(i));
+		List<Category> categories = getAllCategories();
+		for (int i = 0; i < categories.size(); i++) {
+			System.out.println("Category: " + categories.get(i));
+			for (int j = 0; j < categories.get(i).getSubCategories().size(); j++) {
+				System.out.println("Sub Category: " + categories.get(i).getSubCategories().get(j));
+			}
 		}
-		l1 = sortByLessonTime(l1);
-//		Collections.sort(l1, new SortByTime());
-		for (int i = 0; i < l1.size(); i++) {
-			System.out.println(l1.get(i));
-		}
+		
+		
+//		for (int i = 0; i < subca.length; i++) {
+//			
+//		}
+//		System.out.println(subCategoriesNames);
+//		Person person1 = new Person("Jacob", "jacob123@gmail.com", 5);
+//		Category category1 = new Category("Board Games");
+//		SubCategory subcategory1 = new SubCategory("Chess", category1);
+//		category1.addSubCategory(subcategory1);
+//		
+//		int randomNum = 0 + (int)(Math.random() * 50);
+//		LocalDateTime currentTime = LocalDateTime.now().plusMinutes(randomNum);
+//		Lesson lesson1 = new Lesson("My Chess lesson", category1, subcategory1, currentTime, 30, person1, 1);
+//		randomNum = 0 + (int)(Math.random() * 50);
+//		currentTime = LocalDateTime.now().plusMinutes(randomNum);
+//		Lesson lesson2 = new Lesson("My Poop lesson", category1, subcategory1, currentTime, 30, person1, 1);
+////		System.out.println(lesson1.checkLessonStatus());
+////		System.out.println(lesson1);
+////		lesson1 = new Lesson("Eli's lesson", category, subcategory, start_time, duration, lecturer, students, maxStudents)
+//		
+//		
+//		List<Lesson> l1 = new ArrayList<Lesson>();
+//		l1.add(lesson1);
+//		l1.add(lesson2);
+//		for (int i = 0; i < l1.size(); i++) {
+//			System.out.println(l1.get(i));
+//		}
+//		l1 = sortByLessonTime(l1);
+////		Collections.sort(l1, new SortByTime());
+//		for (int i = 0; i < l1.size(); i++) {
+//			System.out.println(l1.get(i));
+//		}
 	}
 	
 	public static List<Lesson> sortByLessonTime(List<Lesson> lessons) {
@@ -51,6 +65,27 @@ public class Main {
 		}
 		Collections.sort(sortedLessons, new SortByTime());
 		return sortedLessons;
+	}
+	
+	public static List<Category> getAllCategories() {
+		String categoriesNames[] = {"Music", "Software","DIY","Academy","Career","Lifestyle"};
+		String subCategoriesNames[][] = {{"Guitar","Piano","Drums","Editing","Violin", "Darbuka"},
+				{"Programming Language","UX / UI","Graphic Design","Web","MS Office","E-Commerce Development"},
+				{"Knitting","Cooking","Drawing","Magic","Woodworking","Electronics"},
+				{"Productivity","photography","Sports & Fitness","Foreign Languages","Writing & Blogging","Games & Puzzles"},
+				{"Entrepreneurship","Leadership & Management","Marketing","Product Management","Advertising","Job Search Help"},
+				{"Math","Engineering","Life Sciences","Law","History","SAT"}};
+		List<Category> categories = new ArrayList<Category>();
+		for (int i = 0; i < categoriesNames.length; i++) {
+			Category category = new Category(categoriesNames[i]);
+			for (int j = 0; j < subCategoriesNames[i].length; j++) {
+				category.addSubCategory(new SubCategory(subCategoriesNames[i][j], category));
+			}
+			categories.add(category);
+			categories.get(i).mixSubCategories();
+		}
+		Collections.shuffle(categories);
+		return categories;
 	}
 
 }

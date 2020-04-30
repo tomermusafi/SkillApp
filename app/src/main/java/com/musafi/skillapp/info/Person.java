@@ -2,28 +2,31 @@ package com.musafi.skillapp.info;
 import java.util.*;
 
 public class Person {
-	String id;
 	String name;
 	String email;
 	List<Lesson> lessons;
 	List<Category> followCategories;
 	List<SubCategory> followSubcategories;
 	int currentAmount;
+	double rating;
+	String avatar;
 	
-	public Person(String id, String name, String email, int currentAmount) {
-		super();
-		this.id = id;
+	public Person(String name, String email, int currentAmount) {
 		this.name = name;
 		this.email = email;
 		this.currentAmount = currentAmount;
+		this.rating = 5;
+		this.lessons = new ArrayList<Lesson>();
+		this.followCategories = new ArrayList<Category>();
+		this.followSubcategories = new ArrayList<SubCategory>();
 	}
 
-	public String getId() {
-		return id;
+	public double getRating() {
+		return rating;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setRating(double rating) {
+		this.rating = rating;
 	}
 
 	public String getName() {

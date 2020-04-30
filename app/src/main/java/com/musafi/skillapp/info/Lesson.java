@@ -1,6 +1,6 @@
 package com.musafi.skillapp.info;
 import java.time.LocalDateTime;
-import java.util.*; 
+import java.util.*;
 
 public class Lesson {
 	String name;
@@ -14,7 +14,6 @@ public class Lesson {
 	
 	public Lesson(String name, Category category, SubCategory subcategory, LocalDateTime start_time, int duration,
 			Person lecturer, int maxStudents) {
-		super();
 		this.name = name;
 		this.category = category;
 		this.subcategory = subcategory;
@@ -22,6 +21,7 @@ public class Lesson {
 		this.duration = duration;
 		this.lecturer = lecturer;
 		this.maxStudents = maxStudents;
+		this.students = new ArrayList<Person>();
 	}
 
 	public String getName() {
