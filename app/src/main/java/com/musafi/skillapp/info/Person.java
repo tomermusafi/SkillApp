@@ -11,11 +11,11 @@ public class Person {
 	double rating;
 	String avatar;
 	
-	public Person(String name, String email, int currentAmount) {
+	public Person(String name, String email, int currentAmount, double rating) {
 		this.name = name;
 		this.email = email;
 		this.currentAmount = currentAmount;
-		this.rating = 5;
+		this.rating = rating;
 		this.lessons = new ArrayList<Lesson>();
 		this.followCategories = new ArrayList<Category>();
 		this.followSubcategories = new ArrayList<SubCategory>();

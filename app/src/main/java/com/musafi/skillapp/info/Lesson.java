@@ -82,18 +82,28 @@ public class Lesson {
 	}
 
 	public String getStartTimeDate() {
-		return start_time.getDayOfMonth()+"/"+start_time.getMonthValue()+"/"+start_time.getYear();
+		return start_time.getDayOfMonth()+"/"+start_time.getMonthValue()+"/20";
 	}
 	
 	public String getStartTimeHourMinute() {
-		return start_time.getHour()+":"+start_time.getMinute();
+		String hour = Integer.toString(start_time.getHour());
+		if (Integer.parseInt(hour) < 10) {
+			hour = "0" + hour;
+		}
+		
+		int minutee = 5*(Math.round(start_time.getMinute()/5));
+		String minute = Integer.toString(minutee);
+		if (Integer.parseInt(minute) < 10) {
+			minute = "0" + minute;
+		}
+		return hour+":"+minute;
 	}
 	
 	@Override
 	public String toString() {
 		return "Lesson [name=" + name + ", category=" + category + ", subcategory=" + subcategory + ", start_time="
 				+ getStartTimeDate() + " " + getStartTimeHourMinute() + ", duration=" + duration + ", lecturer=" + lecturer + ", Number Of Students=" + students.size()
-				+ ", maxStudents=" + maxStudents + "]";
+				+ ", maxStudents=" + maxStudents + "]" + "Rating: " + this.lecturer.getRating();
 	}
 	
 	public LessonStatus checkLessonStatus() {
