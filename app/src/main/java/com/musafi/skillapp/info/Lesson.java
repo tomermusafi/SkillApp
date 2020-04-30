@@ -1,4 +1,4 @@
-package info;
+package com.musafi.skillapp.info;
 import java.time.LocalDateTime;
 import java.util.*; 
 

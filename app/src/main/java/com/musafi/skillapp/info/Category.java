@@ -1,4 +1,4 @@
-package info;
+package com.musafi.skillapp.info;
 import java.util.*; 
 
 public class Category {

@@ -1,4 +1,4 @@
-package info;
+package com.musafi.skillapp.info;
 
 public class SubCategory {
 	String name;
