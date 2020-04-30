@@ -13,7 +13,7 @@ public class Lesson {
 	int maxStudents;
 	
 	public Lesson(String name, Category category, SubCategory subcategory, LocalDateTime start_time, int duration,
-			Person lecturer, List<Person> students, int maxStudents) {
+			Person lecturer, int maxStudents) {
 		super();
 		this.name = name;
 		this.category = category;
@@ -21,7 +21,6 @@ public class Lesson {
 		this.start_time = start_time;
 		this.duration = duration;
 		this.lecturer = lecturer;
-		this.students = students;
 		this.maxStudents = maxStudents;
 	}
 
@@ -79,6 +78,13 @@ public class Lesson {
 	
 	public void addStudent(Person student) {
 		this.students.add(student);
+	}
+
+	@Override
+	public String toString() {
+		return "Lesson [name=" + name + ", category=" + category + ", subcategory=" + subcategory + ", start_time="
+				+ start_time + ", duration=" + duration + ", lecturer=" + lecturer + ", students=" + students
+				+ ", maxStudents=" + maxStudents + "]";
 	}
 	
 	

@@ -33,4 +33,9 @@ public class Category {
 	public void addSubCategory(SubCategory subCategory) {
 		this.subCategories.add(subCategory);
 	}
+	
+	@Override
+	public String toString() {
+		return name;
+	}
 }
