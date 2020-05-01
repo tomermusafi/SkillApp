@@ -13,19 +13,20 @@ import com.musafi.skillapp.info.Category;
 import com.musafi.skillapp.info.SubCategory;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Adapter_SubCategoryModel extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private Context context;
-    private ArrayList<SubCategory> subCategories;
+    private List<SubCategory> subCategories;
     private OnItemClickListener mItemClickListener;
 
-    public Adapter_SubCategoryModel(Context context, ArrayList<SubCategory> SubCategories) {
+    public Adapter_SubCategoryModel(Context context, List<SubCategory> SubCategories) {
         this.context = context;
         this.subCategories = SubCategories;
     }
 
-    public void updateList(ArrayList<SubCategory> subCategory) {
+    public void updateList(List<SubCategory> subCategory) {
         this.subCategories = subCategory;
         notifyDataSetChanged();
 

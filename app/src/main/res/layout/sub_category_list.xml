@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="kakakakak"
-            android:textSize="40sp"
+            android:textSize="30sp"
             android:textColor="@color/category_text_color"
             android:layout_margin="5dp"
             android:textStyle="italic"/>

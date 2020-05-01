@@ -159,7 +159,7 @@ public class Main {
 		coupons.add(new Coupon("25% off on Adidas Clothing", "Adidas", 20, "https://assets.adidas.com/images/w_385,h_385,f_auto,q_auto:sensitive,fl_lossy/39a7f46af8524e0fa095a95901199987_9366/tiro-19-training-pants.jpg"));
 		coupons.add(new Coupon("10% off on Pizza", "Dominos", 7, "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2019/11/23/9613160/big.jpg"));
 		coupons.add(new Coupon("7% off on Dell Laptop", "Dell", 20, "https://www.morlevi.co.il/cache/w_600,h_500,mode_pad/notebook-vostro-15-3580-3581-apj-emea-pdp-1(1).jpg"));
-		coupons.add(new Coupon("15% off on TV 4K", "Samsung", 5, "https://www.google.com/search?q=SAMSUNG+TV+4K&sxsrf=ALeKk014lxrcBByTGD87HuPmlq9ey6xaaA:1588297514433&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj4x5SpxZHpAhVPLewKHdreDAcQ_AUoAXoECAwQAw&biw=1680&bih=907#imgrc=chylBo7hqerxEM"));
+		coupons.add(new Coupon("15% off on TV 4K", "Samsung", 5, "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTIcPC7valJS-j2YiJzfpOs6iYg4DSuRnXXiT0zSPR3Iy6xhAqKIQZk144HlMtr8yMcS60zL_GA&usqp=CAc"));
 		coupons.add(new Coupon("20% off on Washing Machine", "Michele", 50, "https://miro.medium.com/max/1400/1*LidfgXsTgTYjzb6AY9cMFw.jpeg"));
 		coupons.add(new Coupon("17% off on any Udemy Course", "Udemy", 10, "https://230027-986802-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2020/04/Are-Udemy-courses-worth-putting-on-resume.png"));
 		coupons.add(new Coupon("80% off on Breakfast for Couple", "CafeCafe", 20, "https://pbs.twimg.com/media/DwNhJzEX0AENUn5?format=jpg&name=small"));

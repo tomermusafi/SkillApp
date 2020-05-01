@@ -4,15 +4,71 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/main_RL_top"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/category_bg_color">
+
+        <ImageView
+            android:id="@+id/main_back"
+            android:layout_centerInParent="true"
+            android:layout_alignParentLeft="true"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_arrow_back_black_24dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_centerInParent="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            >
+            <TextView
+                android:id="@+id/main_TV_coins"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="35"
+                android:textSize="27sp"
+                android:textColor="@color/category_text_color"
+                android:textStyle="italic"
+                android:layout_marginRight="7dp"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/skillbit"/>
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
     <FrameLayout
         android:id="@+id/main_FL_page"
+        android:layout_below="@id/main_RL_top"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/main_FL_bottom"
-        android:layout_alignParentTop="true"/>
+
+        />
 
     <FrameLayout
         android:id="@+id/main_FL_bottom"

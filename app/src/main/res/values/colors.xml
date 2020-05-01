@@ -6,4 +6,6 @@
     <color name="category_text_color">#FFFFFF</color>
     <color name="category_bg_color">#673AB7</color>
     <color name="subcategory_bg_color">#3F51B5</color>
+    <color name="info_text_color">#000000</color>
+    <color name="coupon_text_color">#8C8B8B</color>
 </resources>

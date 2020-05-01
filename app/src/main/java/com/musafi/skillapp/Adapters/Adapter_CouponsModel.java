@@ -4,29 +4,32 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.musafi.skillapp.R;
-import com.musafi.skillapp.info.Category;
+import com.musafi.skillapp.info.Coupon;
+import com.musafi.skillapp.info.Lesson;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Adapter_CategoryModel extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class Adapter_CouponsModel extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private Context context;
-    private List<Category> categories;
+    private List<Coupon> coupons;
     private OnItemClickListener mItemClickListener;
 
-    public Adapter_CategoryModel(Context context, List<Category> category) {
+    public Adapter_CouponsModel(Context context, List<Coupon> coupons) {
         this.context = context;
-        this.categories = category;
+        this.coupons = coupons;
     }
 
-    public void updateList(ArrayList<Category> category) {
-        this.categories = category;
+    public void updateList(ArrayList<Coupon> coupons) {
+        this.coupons = coupons;
         notifyDataSetChanged();
 
     }
@@ -34,7 +37,7 @@ public class Adapter_CategoryModel extends RecyclerView.Adapter<RecyclerView.Vie
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
 
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.category_list, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.coupons_list, viewGroup, false);
 
         return new ViewHolder(view);
     }
@@ -42,31 +45,47 @@ public class Adapter_CategoryModel extends RecyclerView.Adapter<RecyclerView.Vie
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         if (holder instanceof ViewHolder) {
-            final Category category = getItem(position);
+            final Coupon coupon = getItem(position);
             final ViewHolder genericViewHolder = (ViewHolder) holder;
+// TODO: 5/1/2020
 
-            genericViewHolder.category_name.setText(category.getName());
+            genericViewHolder.coupon_name.setText(coupon.getName());
+            genericViewHolder.company_name.setText(""+coupon.getCompany());
+            genericViewHolder.price.setText(""+coupon.getPrice());
+            Glide.with(context).load(coupon.getUrl()).into(genericViewHolder.coupon_img);
+
+
+
+
+
+
+
         }
     }
 
     @Override
     public int getItemCount() {
-        return categories.size();
+        return coupons.size();
     }
 
-    private Category getItem(int position) {
-        return categories.get(position);
+    private Coupon getItem(int position) {
+        return coupons.get(position);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
 
-        private TextView category_name;
+        private TextView coupon_name, company_name, price;
+        private ImageView coupon_img;
 
         public ViewHolder(final View itemView) {
             super(itemView);
 
-            this.category_name = itemView.findViewById(R.id.category_name);
+            this.coupon_name = itemView.findViewById(R.id.coupon_name);
+            this.company_name = itemView.findViewById(R.id.company_name);
+            this.price = itemView.findViewById(R.id.price);
+            this.coupon_img = itemView.findViewById(R.id.coupon_img);
+
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -78,9 +97,9 @@ public class Adapter_CategoryModel extends RecyclerView.Adapter<RecyclerView.Vie
     }
 
     public void removeAt(int position) {
-        categories.remove(position);
+        coupons.remove(position);
         notifyItemRemoved(position);
-        notifyItemRangeChanged(position, categories.size());
+        notifyItemRangeChanged(position, coupons.size());
     }
 
     public void SetOnItemClickListener(final OnItemClickListener mItemClickListener) {
@@ -88,6 +107,6 @@ public class Adapter_CategoryModel extends RecyclerView.Adapter<RecyclerView.Vie
     }
 
     public interface OnItemClickListener {
-        void onItemClick(View view, int position, Category category);
+        void onItemClick(View view, int position, Coupon coupon);
     }
 }
