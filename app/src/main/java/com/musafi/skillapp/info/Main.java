@@ -98,8 +98,9 @@ public class Main {
 			int randomCoinsAmount = 1 + (int)(Math.random() * 18);
 			double randomRating = 3.9 + (double)(Math.random() * 1.1);
 			randomRating = Double.valueOf((String.format("%.1f", randomRating)));
-			String randomUrl = urls[(int)(Math.random() * urls.length)];
-			users.add(new Person(randomName, "e@e.com", randomCoinsAmount, randomRating, randomUrl));
+//			String randomUrl = urls[(int)(Math.random() * urls.length)];
+			String url = urls[i % urls.length-1];
+			users.add(new Person(randomName, "e@e.com", randomCoinsAmount, randomRating, url));
 		}
 		return users;
 	}
