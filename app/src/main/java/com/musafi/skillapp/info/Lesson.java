@@ -13,9 +13,10 @@ public class Lesson {
 	int maxStudents;
 	int numOfStudentsRolled;
 	String bio;
+	String link;
 	
 	public Lesson(String name, Category category, SubCategory subcategory, LocalDateTime start_time, int duration,
-			Person lecturer, int maxStudents, int numOfStudentsRolled, String bio) {
+			Person lecturer, int maxStudents, int numOfStudentsRolled, String bio, String link) {
 		this.name = name;
 		this.category = category;
 		this.subcategory = subcategory;
@@ -26,6 +27,15 @@ public class Lesson {
 		this.students = new ArrayList<Person>();
 		this.numOfStudentsRolled = numOfStudentsRolled;
 		this.bio = bio;
+		this.link = link;
+	}
+
+	public String getLink() {
+		return link;
+	}
+
+	public void setLink(String link) {
+		this.link = link;
 	}
 
 	public String getBio() {
