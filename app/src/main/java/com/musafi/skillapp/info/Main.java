@@ -147,7 +147,7 @@ public class Main {
 			int randomOfStudentsRolled = (int)(Math.random() * randomMaxStudents);
 			String randomBio = "My name is " + randomPerson.getName() + " and I'm from California. My first passion is " + subCategory.getName() + ", my second passion is teaching! "
 					+ "Feel welcome to join my lesson and together we will make the world a better place :)";
-			String link = "https://zoom.us/j/330807397?pwd=REdzbTVoYzJXQTdkZnRDYUFBWjYwdz09";
+			String link = "https://zoom.us/j/377?pwd=RjYz09";
 			lessons.add(new Lesson(lessonName, subCategory.getCategory(), subCategory, currentTime, randomDuration, randomPerson, randomMaxStudents, randomOfStudentsRolled, randomBio, link));
 		}
 		lessons = sortByLessonTime(lessons);
