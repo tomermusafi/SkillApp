@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorPrimary">#2196F3</color>
+    <color name="colorPrimaryDark">#1E82D1</color>
+    <color name="colorAccent">#03A9F4</color>
     <color name="category_text_color">#FFFFFF</color>
-    <color name="category_bg_color">#673AB7</color>
-    <color name="subcategory_bg_color">#3F51B5</color>
+    <color name="category_bg_color">#0388F1</color>
+    <color name="subcategory_bg_color">#0388F1</color>
     <color name="info_text_color">#000000</color>
     <color name="coupon_text_color">#8C8B8B</color>
 </resources>

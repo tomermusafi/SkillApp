@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -30,6 +31,7 @@ public class LessonsFragment extends Fragment {
     private RecyclerView list_RV_lesson;
     private Context context;
     private Adapter_LessonModel adapter_lessonModel;
+    private TextView subcategory_title;
 
     private List<Lesson> lessons;
     private SubCategory subCategory;
@@ -63,6 +65,7 @@ public class LessonsFragment extends Fragment {
         }
 
         findViews(view);
+        subcategory_title.setText(""+ lessons.get(0).getSubcategory().getName());
         adapter_lessonModel = new Adapter_LessonModel(context, lessons);
         initLessons();
 
@@ -84,6 +87,7 @@ public class LessonsFragment extends Fragment {
 
     private void findViews(View view) {
         list_RV_lesson = view.findViewById(R.id.list_RV_lesson);
+        subcategory_title = view.findViewById(R.id.subcategory_title);
 
     }
 

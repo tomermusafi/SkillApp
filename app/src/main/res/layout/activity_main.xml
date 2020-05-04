@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    >
 
     <RelativeLayout
         android:id="@+id/main_RL_top"
         android:layout_alignParentTop="true"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/category_bg_color">
+        android:background="@color/colorPrimary">
 
         <ImageView
             android:id="@+id/main_back"
@@ -82,12 +83,12 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             app:mbn_circleColor="#ffffff"
-            app:mbn_backgroundBottomColor="#673AB7"
+            app:mbn_backgroundBottomColor="@color/colorPrimary"
             app:mbn_countBackgroundColor="#ff6f00"
             app:mbn_countTextColor="#E61212"
             app:mbn_defaultIconColor="#FFFFFF"
             app:mbn_rippleColor="#F44336"
-            app:mbn_selectedIconColor="#673AB7"
+            app:mbn_selectedIconColor="@color/colorPrimary"
             app:mbn_shadowColor="#3A3C3C"
             />
 

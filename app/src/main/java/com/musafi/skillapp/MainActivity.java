@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     public static ImageView back;
     public static int counter;
 
+    public static int amountOfCoins;
+
     HomeFragment homeFragment;
     LessonsFragment lessonsFragment;
     LessonInfoFragment lessonInfoFragment;
@@ -44,9 +46,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         counter = 0;
+        amountOfCoins = 35;
 
         coins = findViewById(R.id.main_TV_coins);
         back = findViewById(R.id.main_back);
+
+        coins.setText(""+amountOfCoins);
 
         homeFragment = new HomeFragment(this);
         lessonsFragment = new LessonsFragment(this);
@@ -64,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigation.add(new MeowBottomNavigation.Model(SETTINGS, R.drawable.ic_settings_black_24dp));
         bottomNavigation.add(new MeowBottomNavigation.Model(HOME, R.drawable.ic_home_black_24dp));
         bottomNavigation.add(new MeowBottomNavigation.Model(STORE, R.drawable.ic_store_black_24dp));
-        bottomNavigation.add(new MeowBottomNavigation.Model(NEW_LESSON, R.drawable.ic_new_releases_black_24dp));
+        //bottomNavigation.add(new MeowBottomNavigation.Model(NEW_LESSON, R.drawable.ic_new_releases_black_24dp));
 
         bottomNavigation.show(HOME,true);
 
